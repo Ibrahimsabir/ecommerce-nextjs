@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,8 +9,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        primaryFont:"Rye",
+        secondaryFont:"Satoshi"
+      },
       colors: {
-        background: "var(--background)",
+        background:" #f0e2bc ",
         foreground: "var(--foreground)",
       },
     },
