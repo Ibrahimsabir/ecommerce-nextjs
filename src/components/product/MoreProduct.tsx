@@ -21,7 +21,7 @@ const MoreProducts = () => {
         </div>
 
         {/* Body section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 gap-y-24 place-items-center">
           {ProductsData.slice(0, visibleProducts).map((data) => (
             <ProductCard key={data.id} ProductsData={data} showOrderButton={true} />
           ))}

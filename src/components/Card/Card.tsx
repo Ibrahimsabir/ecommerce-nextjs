@@ -18,7 +18,7 @@ const ProductCard = ({ ProductsData, showOrderButton = true }) => {
           alt={ProductsData.title}
           width={140}
           height={220}
-          className="max-w-[140px] block mx-auto transform -translate-y-20 group-hover:scale-105 duration-300 drop-shadow-md"
+          className="max-w-[140px] block mx-auto rounded-lg transform -translate-y-20 group-hover:scale-105 duration-300  drop-shadow-md"
         />
       </div>
       <div className="p-4 text-center flex flex-col justify-between flex-grow">
