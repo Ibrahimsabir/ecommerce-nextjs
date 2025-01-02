@@ -3,6 +3,7 @@ import ProductDetailGrid from "@/components/productinfo/productgrid";
 import toast, { Toaster } from 'react-hot-toast';
 import React from "react";
 import { ProductsData } from "@/components/productdata/productData";
+import { AiOutlineStar, AiFillStar, AiOutlineHeart } from "react-icons/ai"; // Importing icons
 
 interface Product {
   id: string; // Unique identifier for the product
@@ -46,31 +47,13 @@ const ProductDetail = () => {
                 {Array(4)
                   .fill("")
                   .map((_, idx) => (
-                    <svg
+                    <AiFillStar
                       key={idx}
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      className="w-4 h-4 text-indigo-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
+                      className="w-4 h-4 text-yellow-400"
+                    />
                   ))}
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  className="w-4 h-4 text-indigo-500"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <span className="text-gray-600 ml-3">4 Reviews</span>
+                <AiOutlineStar className="w-4 h-4 text-yellow-400" />
+                <span className="text-gray-600 ml-3"></span>
               </span>
             </div>
             <p className="leading-relaxed">
@@ -107,16 +90,7 @@ const ProductDetail = () => {
                 Add To Cart
               </button>
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                <svg
-                  fill="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                </svg>
+                <AiOutlineHeart className="w-5 h-5" />
               </button>
             </div>
           </div>
