@@ -20,7 +20,7 @@ export interface Product {
   aosDelay: number;
 }
 
-const ProductDetail = ({ params }: { params: { id: string } }) => {
+const ProductDetail = ({ params } : { params: { id: string } }) => {
   const [product, setProduct] = useState<Product | null>(null);
   
   const { id } = params // Assuming id is passed in the URL
