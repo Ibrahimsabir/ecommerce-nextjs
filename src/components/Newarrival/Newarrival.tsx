@@ -5,7 +5,7 @@ import Aos from "aos";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import { TopSell } from "../productdata/productData";
+import { NewArrivals } from "../productdata/productData";
 import Link from "next/link"; // Import Link component
 
 const poppins = Poppins({
@@ -13,7 +13,7 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-const TopSelling = () => {
+const NewArrival = () => {
   const [visibleProducts, setVisibleProducts] = useState(3); // To manage the number of visible products
   const [noMoreProducts, setNoMoreProducts] = useState(false); // To show "No more products" message
 
@@ -28,7 +28,7 @@ const TopSelling = () => {
 
   const handleViewMore = () => {
     // Load next 3 products
-    if (visibleProducts + 3 <= TopSell.length) {
+    if (visibleProducts + 3 <= NewArrivals.length) {
       setVisibleProducts(visibleProducts + 3);
     } else {
       setNoMoreProducts(true); // Show message if no more products
@@ -36,17 +36,17 @@ const TopSelling = () => {
   };
 
   return (
-    <div className={`${poppins.className} overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-md bg-gray-50 flex justify-center items-center`}>
+    <div className={`${poppins.className} relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-xl bg-gray-50 flex justify-center items-center`}>
       <div className="mx-auto w-full">
         {/* Header Section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
           <p
-            className="text-3xl font-bold py-8 text-[#f7d1a6] underline uppercase animate-bounce"
+            className="text-3xl font-bold py-8 text-[#f7d1a6] underline uppercase animate-wobble"
           >
-            Top Selling Products
+            New Arrivals
           </p>
           <h1 className="text-xl font-semibold text-gray-800" data-aos="fade-left">
-            IMPECCABLE CRAFTSMANSHIP
+            Suits Your Taste
           </h1>
         </div>
 
@@ -54,7 +54,7 @@ const TopSelling = () => {
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 place-items-center gap-10">
             {/* Card Section */}
-            {TopSell.slice(0, visibleProducts).map((data) => (
+            {NewArrivals.slice(0, visibleProducts).map((data) => (
               <Link key={data.id} href={`/productdetail/${data.id}`}>
                 {/* Link wraps the entire card */}
                 <div
@@ -111,4 +111,4 @@ const TopSelling = () => {
   );
 };
 
-export default TopSelling;
+export default NewArrival;

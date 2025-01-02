@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/Navbar/Navbar";
-import { Navbarbottom } from "./components/Navbar/Navbarbottom";
+import Navbar from "../components/Navbar/Navbar";
+import { Navbarbottom } from "../components/Navbar/Navbarbottom";
 import { ReactNode } from "react";// Import your global styles
 import "slick-carousel/slick/slick.css";  // Import Slick carousel styles
 import "slick-carousel/slick/slick-theme.css";  // Import Slick carousel theme styles
+import { Footer } from "@/components/Footer/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Navbar/>
         <Navbarbottom/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

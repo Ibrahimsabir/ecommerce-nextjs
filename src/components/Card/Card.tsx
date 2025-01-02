@@ -2,7 +2,24 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-import { ProductsData } from "../PoductsDetail/ProductData";
+import { ProductsData } from "../productdata/productData"
+
+interface Product {
+  id: number;
+  title: string;
+  description: string;
+  img: string;
+  category: string;
+  rating: number;
+  price: string;
+  priceWas?: string; // Optional field
+  color: string;
+  aosDelay?: number; // Optional field
+  showOrderButton?: boolean; // Optional field
+}
+
+type ProductsData = Product[];
+
 
 const ProductCard = ({ ProductsData, showOrderButton = true }) => {
   return (
@@ -32,8 +49,8 @@ const ProductCard = ({ ProductsData, showOrderButton = true }) => {
         </div>
         {/* Show order button if needed */}
         {showOrderButton && (
-          <Link href={`/product/${ProductsData.id}`}>
-            <button className="bg-primary hover:scale-105 text-[#f7d1a6] py-1 px-4 rounded-full mt-4 group-hover:bg-white group-hover:text-primary">
+          <Link href={`/productdetail/${ProductsData.id}`}>
+            <button className="bg-primary hover:scale-105 text-gray-700 border-2 border-[#f7d1a6] py-1 px-4 rounded-full my-2 group-hover:bg-white group-hover:text-[#f7d1a6]">
               View Details
             </button>
           </Link>

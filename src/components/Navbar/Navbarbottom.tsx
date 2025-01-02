@@ -29,13 +29,16 @@ export const Navbarbottom = () => {
         </li>
         
           <li className="hover:underline underline-offset-4 ">
-            <Link href="/contact">On Sale</Link>
+            <Link href="#topselling">On Sale</Link>
           </li>
           <li className="hover:underline underline-offset-4">
-            <Link href="#newArrival">New Arrival</Link>
+            <Link href="#Newarrival">New Arrival</Link>
           </li>
           <li className="hover:underline underline-offset-4">
             <Link href="/login" target="_blank">Brands</Link>
+          </li>
+          <li className="hover:underline underline-offset-4">
+            <Link href="/login" target="_blank"></Link>
           </li>
         </ul>
     </div>

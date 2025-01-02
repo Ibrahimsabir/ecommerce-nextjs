@@ -3,18 +3,19 @@ import Image from 'next/image';
 import { IoSearch } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import { IoPersonCircleSharp } from "react-icons/io5";
-import { Roboto } from 'next/font/google';
+import { Poppins } from 'next/font/google';
+import Link from 'next/link';
 
 
 
-const roboto = Roboto({
+const poppins = Poppins({
   weight: ['400', '700'],
   subsets: ['latin'],
 });
 
 const Navbar = () => {
   return (
-    <div className={`${roboto.className} w-full h-auto  px-2 relative`}
+    <div className={`${poppins.className} w-full h-auto shadow-md px-2 relative`}
      style={{backgroundColor:'rgba(247, 209, 166,1)'}}>
       <div className="min-w-[1170px] h-full flex flex-col md:flex-row justify-around items-center sm:px-2 md:px-4 lg:px-0 mx-4 gap-4 md:gap-20 py-4 md:py-0">
         {/* Logo */}
@@ -51,7 +52,9 @@ const Navbar = () => {
 
   {/* Icons */}
   <div className="flex items-center gap-4">
+    <Link href={"/Cart"}>
     <FiShoppingCart className="text-xl sm:text-2xl text-black cursor-pointer hover:text-gray-700 transition-all duration-200" />
+    </Link>
     <IoPersonCircleSharp className="text-2xl sm:text-3xl text-black cursor-pointer hover:text-gray-700 transition-all duration-200" />
   </div>
 </div>
