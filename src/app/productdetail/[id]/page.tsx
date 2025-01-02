@@ -49,7 +49,7 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
             <Link href="/">
               <div className="group relative">
                 <Image
-                  src={`/{product?.img}`} // Main image
+                  src={`/{product?.image}`} // Main image
                   width={500}
                   height={500}
                   alt="Large Image"
