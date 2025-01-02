@@ -53,7 +53,7 @@ const Cart = () => {
   );
 
   return (
-    <div className="p-8 bg-[] min-h-screen">
+    <div className={` p-8 bg-[] min-h-screen`}>
       <h1 className="text-2xl font-bold mb-6 text-center">Your Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-600">Your cart is empty.</p>
@@ -113,7 +113,7 @@ const Cart = () => {
           {/* Checkout Button */}
           <div className="text-center">
             <Link href="/checkout">
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600">
+              <button className="bg-[#f7d1a6] text-white px-6 py-3 rounded-lg hover:shadow-lg">
                 Proceed to Checkout
               </button>
             </Link>

@@ -3,12 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image"; // Next.js Image component
 import Aos from 'aos'; // AOS for animations
 import 'aos/dist/aos.css'; // AOS styles
-import { Poppins } from "next/font/google";
-
-const poppins = Poppins({
-  weight: ["400", "700"],
-  subsets: ['latin'],
-});
 
 const Hero = () => {
   const [currentDiv, setCurrentDiv] = useState(0);
@@ -61,7 +55,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className={`${poppins.className} relative overflow-hidden w-full min-h-[550px] shadow-md sm:min-h-[650px] bg-gray-50 flex justify-center items-center duration-200`}>
+    <div className={` relative overflow-hidden w-full min-h-[550px] shadow-md sm:min-h-[650px] bg-gray-50 flex justify-center items-center duration-200`}>
       {/* Background pattern */}
      {/* Background pattern */}
 <div className="h-[700px] w-[700px] bg-[#f7d1a6] absolute -top-10 right-0 transform -translate-y-1/2 rounded-full rotate-45 -z-9"></div>

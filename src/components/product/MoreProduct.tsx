@@ -2,12 +2,7 @@
 import { useState } from "react";
 import { ProductsData } from "../productdata/productData";
 import ProductCard from "../Card/Card"; // Import the reusable ProductCard
-import { Poppins } from "next/font/google";
 
-const poppins = Poppins({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
 const MoreProducts = () => {
   const [visibleProducts, setVisibleProducts] = useState(3);
 
@@ -16,7 +11,7 @@ const MoreProducts = () => {
   };
 
   return (
-    <div className={`${poppins.className} relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-lg bg-gray-50 flex justify-center items-center`}>
+    <div className={` relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-lg bg-gray-50 flex justify-center items-center`}>
       <div className="mx-auto w-full">
         <div className="text-center mb-32 max-w-[600px] mx-auto">
           <p className="text-3xl font-bold my-4 text-[#f7d1a6] underline uppercase animate-pulse">
@@ -39,7 +34,7 @@ const MoreProducts = () => {
               onClick={handleViewMore}
               className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300"
             >
-              View All
+              View More
             </button>
           </div>
         )}

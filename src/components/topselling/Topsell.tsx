@@ -4,14 +4,9 @@ import "aos/dist/aos.css"; // Import AOS styles
 import Aos from "aos";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
-import { Poppins } from "next/font/google";
 import { TopSell } from "../productdata/productData";
 import Link from "next/link"; // Import Link component
 
-const poppins = Poppins({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
 
 const TopSelling = () => {
   const [visibleProducts, setVisibleProducts] = useState(3); // To manage the number of visible products
@@ -36,7 +31,7 @@ const TopSelling = () => {
   };
 
   return (
-    <div className={`${poppins.className} overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-md bg-gray-50 flex justify-center items-center`}>
+    <div className={`overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-md bg-gray-50 flex justify-center items-center`}>
       <div className="mx-auto w-full">
         {/* Header Section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">

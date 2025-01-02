@@ -1,12 +1,27 @@
-"use client"
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Product } from '@/app/productdetail/[id]/page';
+import { ProductsData } from '../productdata/productData';
 
-const ProductDetailGrid = () => {
+const ProductDetailGrid = ({ params }: { params: { id: string } }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [largeImageHeight, setLargeImageHeight] = useState(0);
-  const smallImagesRef = useRef([]);
+  const [product, setProduct] = useState<Product | null>(null);
+
+  // Fetch product details from ProductsData based on the id
+  useEffect(() => {
+    const fetchProductDetails = () => {
+      // Find the product based on the `id` from ProductsData
+      const fetchedProduct = ProductsData.find((prod) => prod.id === params.id);
+
+      if (fetchedProduct) {
+        setProduct(fetchedProduct); // Set product data
+      }
+    };
+
+    fetchProductDetails();
+  }, [id]);
 
   // Detect screen size on mount and on resize
   useEffect(() => {
@@ -14,55 +29,39 @@ const ProductDetailGrid = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Initial check
-    handleResize();
-
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup on unmount
-    return () => window.removeEventListener('resize', handleResize);
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize); // Add event listener
+    return () => window.removeEventListener('resize', handleResize); // Cleanup on unmount
   }, []);
 
-  // Calculate the total height of the small images column
-  useEffect(() => {
-    if (!isMobile && smallImagesRef.current.length > 0) {
-      const totalHeight = smallImagesRef.current.reduce(
-        (sum, img) => sum + img.offsetHeight + 16, // 16px is the gap
-        -16 // Remove last extra gap
-      );
-      setLargeImageHeight(totalHeight);
-    }
-  }, [isMobile]);
-
   return (
-    <div className="w-full max-w-[1240px] mx-auto py-8">
+    <div className={`w-full max-w-[1240px] mx-auto py-8`}>
       {isMobile ? (
         // Mobile Layout
         <div>
           {/* Large Image */}
           <div className="w-full h-[530px] rounded overflow-hidden mb-4">
-            <Link href="/large-image">
+            <Link href="">
               <div className="group relative">
                 <Image
-                  src="/images/men-watches/watch-4-(4).jpg"
+                  src={`/${product?.img}`} // Main image
                   width={500}
                   height={500}
                   alt="Large Image"
-                  className="w-full h-full object-cover transition-transform rounded-lg duration-300 group-hover:scale-105 group-hover:shadow-lg"
+                  className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
                 />
               </div>
             </Link>
           </div>
 
-          {/* Row of Smaller Images */}
+          {/* Row of Smaller Images (Dynamic Loop) */}
           <div className="grid grid-cols-3 gap-4">
-            {["/images/men-watches/watch-4-(2).jpg", "/images/men-watches/watch-4-(1).jpg", "/images/men-watches/watch-4-(3).jpg"].map((img, idx) => (
+            {product?.images.map((img, idx) => (
               <div key={idx} className="w-full h-[162px] rounded overflow-hidden">
                 <Link href={`/small-image-${idx + 1}`}>
                   <div className="group relative">
                     <Image
-                      src={img}
+                      src={`/${img}`} // Dynamic small image paths
                       width={152}
                       height={162}
                       alt={`Small Image ${idx + 1}`}
@@ -77,18 +76,14 @@ const ProductDetailGrid = () => {
       ) : (
         // Desktop Layout
         <div className="grid grid-cols-[152px_444px] gap-4">
-          {/* First Column */}
+          {/* First Column (Dynamic Loop) */}
           <div className="grid grid-rows-3 gap-4">
-            {["/images/men-watches/watch-4-(2).jpg", "/images/men-watches/watch-4-(1).jpg", "/images/men-watches/watch-4-(3).jpg"].map((img, idx) => (
-              <div
-                key={idx}
-                className="w-[152px] h-[162px] rounded overflow-hidden"
-                ref={(el) => (smallImagesRef.current[idx] = el)}
-              >
+            {product?.images.map((img, idx) => (
+              <div key={idx} className="w-[152px] h-[162px] rounded overflow-hidden">
                 <Link href={`/small-image-${idx + 1}`}>
                   <div className="group relative">
                     <Image
-                      src={img}
+                      src={`/${img}`} // Dynamic small image paths
                       width={152}
                       height={162}
                       alt={`Small Image ${idx + 1}`}
@@ -100,19 +95,16 @@ const ProductDetailGrid = () => {
             ))}
           </div>
 
-          {/* Second Column */}
-          <div
-            className="w-[444px] rounded overflow-hidden"
-            style={{ height: `${largeImageHeight}px` }}
-          >
+          {/* Second Column (Main Image) */}
+          <div className="w-[444px] h-[530px] rounded overflow-hidden">
             <Link href="/large-image">
               <div className="group relative">
                 <Image
-                  src="/images/men-watches/watch-4-(4).jpg"
+                  src={`/${product?.img}`} // Main image
                   width={500}
                   height={500}
                   alt="Large Image"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 rounded-lg group-hover:shadow-lg"
+                  className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
                 />
               </div>
             </Link>

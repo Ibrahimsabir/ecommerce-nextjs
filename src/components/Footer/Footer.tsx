@@ -1,18 +1,14 @@
 import React from 'react'
-import { Poppins } from 'next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin, FaSquareFacebook, FaYoutube } from "react-icons/fa6";
 
-const poppins = Poppins({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-});
+
 
 export const Footer = () => {
   return (
-    <footer className={`${poppins.className} text-gray-600 body-font`}>
+    <footer className={` text-gray-600 body-font`}>
   <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
       <Link href={""}

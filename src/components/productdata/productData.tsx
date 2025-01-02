@@ -184,6 +184,7 @@ export const ProductsData = [
         title: "Sneakers",
         description: "Comfortable sneakers for everyday use.",
         img: "/images/shoes/running-1.jpg",
+        smallImage:[""],
         category: "Footwear",
         rating: 4.6,
         price: "$59.99",

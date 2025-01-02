@@ -1,16 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import { FaCaretDown } from "react-icons/fa6";
-import { Roboto } from 'next/font/google';
 
 
-const roboto = Roboto({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-});
 export const Navbarbottom = () => {
   return (
-<div className={`${roboto.className} min-w-full h-auto  relative bg-[#f5e8da] `} >              {/* Navigation Links */}
+<div className={` min-w-full h-auto  relative bg-[#f5e8da] `} >              {/* Navigation Links */}
                 <ul className=" flex flex-col md:flex-row gap-4 md:gap-6 text-sm sm:text-xl items-center justify-center py-4">
                 <li className="relative group hover:underline underline-offset-4">
           <Link href="/" className="flex items-center">

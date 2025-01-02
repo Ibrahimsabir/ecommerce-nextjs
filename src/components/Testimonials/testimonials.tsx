@@ -1,13 +1,8 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
-import { Poppins } from "next/font/google";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
-const poppins = Poppins({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
 
 // Dynamically import Slider without SSR
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
@@ -88,7 +83,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className={`${poppins.className} py-10 mb-10 bg-white shadow-lg`}>
+    <div className={` py-10 mb-10 bg-white shadow-lg`}>
       <div className="container">
         {/* Header section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">

@@ -7,6 +7,7 @@ import { ReactNode } from "react";// Import your global styles
 import "slick-carousel/slick/slick.css";  // Import Slick carousel styles
 import "slick-carousel/slick/slick-theme.css";  // Import Slick carousel theme styles
 import { Footer } from "@/components/Footer/Footer";
+import { poppins } from "./fonts/fonts";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} antialiased`}
       >
         <Navbar/>
         <Navbarbottom/>

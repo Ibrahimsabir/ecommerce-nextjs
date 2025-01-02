@@ -1,17 +1,11 @@
 import React from "react";
-import { Poppins } from 'next/font/google';
-
-const poppins = Poppins({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-});
 
 
 const Subscribe = () => {
   return (
     <div
       data-aos="zoom-in"
-      className={`${poppins.className} mb-20 bg-[#f7d1a6] dark:bg-gray-800 text-white`}
+      className={` mb-20 bg-[#f7d1a6] dark:bg-gray-800 text-white`}
     >
       <div className="container backdrop-blur-sm py-10">
         <div className="flex flex-col space-y-6 max-w-xl mx-auto">
