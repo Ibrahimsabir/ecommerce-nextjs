@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-import { ProductsData } from "../productdata/productData"
+// import { ProductsData } from "../productdata/productData";
 
 interface Product {
   id: number;
