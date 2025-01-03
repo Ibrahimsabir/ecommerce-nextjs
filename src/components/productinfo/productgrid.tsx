@@ -21,7 +21,7 @@ const ProductDetailGrid = ({ params }: { params: { id: string } }) => {
     };
 
     fetchProductDetails();
-  }, [id]);
+  }, [params.id]);
 
   // Detect screen size on mount and on resize
   useEffect(() => {
@@ -32,7 +32,7 @@ const ProductDetailGrid = ({ params }: { params: { id: string } }) => {
     handleResize(); // Initial check
     window.addEventListener('resize', handleResize); // Add event listener
     return () => window.removeEventListener('resize', handleResize); // Cleanup on unmount
-  }, []);
+  }, [id]);
 
   return (
     <div className={`w-full max-w-[1240px] mx-auto py-8`}>
@@ -44,7 +44,7 @@ const ProductDetailGrid = ({ params }: { params: { id: string } }) => {
             <Link href="">
               <div className="group relative">
                 <Image
-                  src={`/${product?.img}`} // Main image
+                  src={product?.img} // Main image
                   width={500}
                   height={500}
                   alt="Large Image"
@@ -100,7 +100,7 @@ const ProductDetailGrid = ({ params }: { params: { id: string } }) => {
             <Link href="/large-image">
               <div className="group relative">
                 <Image
-                  src={`/${product?.img}`} // Main image
+                  src={product?.img} // Main image
                   width={500}
                   height={500}
                   alt="Large Image"

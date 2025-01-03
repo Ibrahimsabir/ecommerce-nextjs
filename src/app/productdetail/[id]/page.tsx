@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router"; // For accessing query params
 import { ProductsData } from "@/components/productdata/productData";
 import { AiOutlineStar, AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import ProductDetailGrid from "@/components/productinfo/productgrid";
 
 export interface Product {
   id: string;
@@ -49,7 +50,7 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
             <Link href="/">
               <div className="group relative">
                 <Image
-                  src={`/${product?.img}`} // Main image
+                  src={product?.img} // Main image
                   width={500}
                   height={500}
                   alt="Large Image"
@@ -92,10 +93,11 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
                 <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none" />
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
               <span className="title-font font-medium text-2xl text-gray-900">
                 {product?.price || "0.00"}
               </span>
+              <div className="flex justify-center mx-auto items-center">
               <button
                 onClick={addtocarthandler}
                 className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
@@ -105,6 +107,7 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <AiOutlineHeart className="w-5 h-5" />
               </button>
+              </div>
             </div>
           </div>
         </div>
