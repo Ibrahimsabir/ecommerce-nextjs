@@ -13,28 +13,28 @@ export const Navbarbottom = () => {
           </Link>
           
           {/* Dropdown Menu */}
-          <div className="absolute left-0 hidden group-hover:block mt-2 w-48 bg-white shadow-lg rounded-lg p-4">
+          <div className="absolute w-56 left-0 hidden group-hover:block mt-2 bg-white shadow-lg rounded-lg p-4">
             <ul>
-              <li><Link href="/option1" className="block py-2">Option 1</Link></li>
-              <li><Link href="/option2" className="block py-2">Option 2</Link></li>
-              <li><Link href="/option3" className="block py-2">Option 3</Link></li>
+              <li><Link href="/option1" className="block text-semibold py-2">Men's Clothing</Link></li>
+              <li><Link href="/option2" className="block text-semibold py-2">Men's Watches</Link></li>
+              <li><Link href="/option3" className="block text-semibold py-2">Women's Watches</Link></li>
               {/* Add more options as needed */}
             </ul>
           </div>
         </li>
-        
-          <li className="hover:underline underline-offset-4 ">
-            <Link href="#topselling">On Sale</Link>
+        <li className="hover:underline text-semibold underline-offset-4">
+            <Link href="/" target="_blank">Home</Link>
           </li>
-          <li className="hover:underline underline-offset-4">
+          <li className="hover:underline text-semibold underline-offset-4 ">
+            <Link href="topselling">Top Selling</Link>
+          </li>
+          <li className="hover:underline text-semibold underline-offset-4">
             <Link href="#Newarrival">New Arrival</Link>
           </li>
-          <li className="hover:underline underline-offset-4">
-            <Link href="/login" target="_blank">Brands</Link>
+          <li className="hover:underline text-semibold underline-offset-4">
+            <Link href="/login" target="_blank">More Products</Link>
           </li>
-          <li className="hover:underline underline-offset-4">
-            <Link href="/login" target="_blank"></Link>
-          </li>
+          
         </ul>
     </div>
   )

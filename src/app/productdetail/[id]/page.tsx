@@ -3,10 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router"; // For accessing query params
 import { ProductsData } from "@/components/productdata/productData";
 import { AiOutlineStar, AiFillStar, AiOutlineHeart } from "react-icons/ai";
-import ProductDetailGrid from "@/components/productinfo/productgrid";
 
 export interface Product {
   id: string;
