@@ -29,7 +29,7 @@ const ProductCard = ({ ProductsData, showOrderButton = true }:any) => {
       data-aos="fade-up"
       data-aos-delay={ProductsData.aosDelay}
     >
-      <div className="h-[220px] flex justify-center items-center">
+      <div className="h-[200px] flex justify-center items-center">
         <Image
           src={ProductsData.img}
           alt={ProductsData.title}

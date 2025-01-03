@@ -44,7 +44,7 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
       <Toaster />
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-row">
-        <div className="w-[444px] h-[530px] rounded overflow-hidden">
+        <div className="w-[530px] h-[530px] rounded overflow-hidden">
             <Link href="/">
               <div className="group relative">
                 <Image
@@ -71,7 +71,7 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
                       className="w-4 h-4 text-yellow-400"
                     />
                   ))}
-                {Array(5 - Math.floor(product?.rating || 0))
+                {Array(5 - Math.ceil(product?.rating || 0))
                   .fill("")
                   .map((_, idx) => (
                     <AiOutlineStar
@@ -95,7 +95,7 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
               <span className="title-font font-medium text-2xl text-gray-900">
                 {product?.price || "0.00"}
               </span>
-              <div className="flex justify-center mx-auto items-center">
+              <div className="flex justify-end items-center">
               <button
                 onClick={addtocarthandler}
                 className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
