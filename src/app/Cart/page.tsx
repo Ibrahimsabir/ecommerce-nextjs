@@ -35,8 +35,8 @@ const Cart = () => {
     },
   ]);
   
-  const handleRemove = (id:string) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+  const handleRemove = ({ params } : { params: { id: string } }) => {
+    setCartItems(cartItems.filter((item) => item.id !== params.id));
   };
 
   const handleQuantityChange = (id, newQuantity) => {

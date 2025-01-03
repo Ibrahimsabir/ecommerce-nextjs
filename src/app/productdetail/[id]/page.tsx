@@ -31,7 +31,7 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
       const product = ProductsData.find((item) => item.id === params.id);
       setProduct(product || null);
     }
-  }, [id]);
+  }, [params.id]);
 
   const addtocarthandler = () => {
     toast.success("Item added to cart!", {

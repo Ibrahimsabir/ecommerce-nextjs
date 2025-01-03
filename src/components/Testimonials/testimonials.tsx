@@ -2,6 +2,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import Image from "next/image";
 
 
 // Dynamically import Slider without SSR
@@ -12,25 +13,31 @@ const TestimonialData = [
     id: 1,
     name: "Filza Khan",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/101/101",
+    img: "/images/scenery3.jpg",
   },
   {
     id: 2,
     name: "Saira Naseer",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/102/102",
+    img: "/images/avatar2.jpg",
   },
   {
     id: 3,
     name: "Millan Sabir",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/104/104",
+    img: "/images/scenery1.jpg",
+  },
+  {
+    id: 4,
+    name: "Zarrar Majid",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    img: "/images/avatar4.jpg",
   },
   {
     id: 5,
-    name: "Zarrar Majid",
+    name: "Kanwal Heer",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/103/103",
+    img: "/images/scenery2.jpg",
   },
 ];
 
@@ -106,8 +113,10 @@ const Testimonials = () => {
               <div key={data.id} className="my-6">
                 <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 bg-[#f7d1a6] rounded-xl dark:bg-gray-800 bg-primary/10 relative">
                   <div className="mb-4">
-                    <img
+                    <Image
                       src={data.img}
+                      width={100}
+                      height={100}
                       alt="Profile Picture"
                       className="rounded-full w-20 h-20"
                     />

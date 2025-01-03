@@ -21,7 +21,7 @@ interface Product {
 type ProductsData = Product[];
 
 
-const ProductCard = ({ ProductsData, showOrderButton = true }:any) => {
+const ProductCard = ({ ProductsData, showOrderButton = true }) => {
   return (
     <div
       key={ProductsData.id}
