@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./Card"; // Import the ProductCard component
 
 interface Product {
-  id: string;
+  id: string; // Change id to a number
   title: string;
   description: string;
   img: string;

@@ -19,10 +19,10 @@ export interface Product {
   aosDelay: number;
 }
 
-const ProductDetail = ({ params } : { params: { id: string } }) => {
+const ProductDetail = ({ params }: { params: { id: string } }) => {
   const [product, setProduct] = useState<Product | null>(null);
   
-  const { id } = params // Assuming id is passed in the URL
+  const { id } = params; // Assuming id is passed in the URL
   console.log("ID from useRouter:", id);
 
   useEffect(() => {
@@ -39,16 +39,19 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
     });
   };
 
+  // Fallback image in case product.img is undefined
+  const fallbackImage = "/images/default-product.jpg"; // Replace with your default image path
+
   return (
     <section className="text-gray-600 shadow-lg body-font overflow-hidden">
       <Toaster />
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-row">
-        <div className="w-[530px] h-[530px] rounded overflow-hidden">
+          <div className="w-[530px] h-[530px] rounded overflow-hidden">
             <Link href="/">
               <div className="group relative">
                 <Image
-                  src={product?.img} // Main image
+                  src={product?.img || fallbackImage} // Use fallback image if img is undefined
                   width={500}
                   height={500}
                   alt="Large Image"
@@ -96,15 +99,15 @@ const ProductDetail = ({ params } : { params: { id: string } }) => {
                 {product?.price || "0.00"}
               </span>
               <div className="flex justify-end items-center">
-              <button
-                onClick={addtocarthandler}
-                className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
-              >
-                Add To Cart
-              </button>
-              <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                <AiOutlineHeart className="w-5 h-5" />
-              </button>
+                <button
+                  onClick={addtocarthandler}
+                  className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
+                >
+                  Add To Cart
+                </button>
+                <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                  <AiOutlineHeart className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>

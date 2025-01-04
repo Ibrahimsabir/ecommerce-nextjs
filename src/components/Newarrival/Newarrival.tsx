@@ -4,14 +4,9 @@ import "aos/dist/aos.css"; // Import AOS styles
 import Aos from "aos";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
-import { Poppins } from "next/font/google";
 import { NewArrivals } from "../productdata/productData";
 import Link from "next/link"; // Import Link component
 
-const poppins = Poppins({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
 
 const NewArrival = () => {
   const [visibleProducts, setVisibleProducts] = useState(3); // To manage the number of visible products

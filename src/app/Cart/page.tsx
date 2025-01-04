@@ -5,8 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 
+// Define types for the cart item
+interface CartItem {
+  id: string;
+  title: string;
+  description: string;
+  img: string;
+  category: string;
+  rating: number;
+  price: number;
+  priceWas: string;
+  color: string;
+  quantity: number;
+  aosDelay: number;
+}
+
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
+  const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: "2",
       title: "Graphic T-Shirt",
@@ -14,10 +29,10 @@ const Cart = () => {
       img: "/images/men-clothing/t-shirts-2 (2).png",
       category: "T-Shirts",
       rating: 4.7,
-      price: 18.49, // Changed to a number
-      priceWas: "", // New Arrival
+      price: 18.49,
+      priceWas: "",
       color: "Black",
-      quantity: 1, // Added quantity
+      quantity: 1,
       aosDelay: 200,
     },
     {
@@ -27,19 +42,21 @@ const Cart = () => {
       img: "/images/accessories/leather-belt1.jpg",
       category: "Accessories",
       rating: 4.6,
-      price: 29.99, // Changed to a number
-      priceWas: 39.99,
+      price: 29.99,
+      priceWas: "39.99",
       color: "Brown",
-      quantity: 1, // Added quantity
+      quantity: 1,
       aosDelay: 1300,
     },
   ]);
-  
-  const handleRemove = ({ params } : { params: { id: string } }) => {
-    setCartItems(cartItems.filter((item) => item.id !== params.id));
+
+  // Define the types for the parameters in handleRemove function
+  const handleRemove = (id: string) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
-  const handleQuantityChange = (id, newQuantity) => {
+  // Define types for the parameters in handleQuantityChange function
+  const handleQuantityChange = (id: string, newQuantity: number) => {
     setCartItems(
       cartItems.map((item) =>
         item.id === id ? { ...item, quantity: newQuantity } : item
@@ -53,7 +70,7 @@ const Cart = () => {
   );
 
   return (
-    <div className={` p-8 bg-[] min-h-screen`}>
+    <div className="p-8 bg-[] min-h-screen">
       <h1 className="text-2xl font-bold mb-6 text-center">Your Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-600">Your cart is empty.</p>
@@ -65,14 +82,14 @@ const Cart = () => {
               className="flex items-center justify-between bg-white shadow-lg p-4 rounded-lg"
             >
               {/* Product Image */}
-              <Link href={`/productdetail/id`}>
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={80}
-                height={80}
-                className="rounded-lg"
-              />
+              <Link href={`/productdetail/${item.id}`}>
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={80}
+                  height={80}
+                  className="rounded-lg"
+                />
               </Link>
               {/* Product Details */}
               <div className="flex-1 px-4">
@@ -85,7 +102,7 @@ const Cart = () => {
                       handleQuantityChange(item.id, Math.max(item.quantity - 1, 1))
                     }
                   >
-                  <MinusIcon className="w-4 h-4"/>
+                    <MinusIcon className="w-4 h-4"/>
                   </button>
                   <span>{item.quantity}</span>
                   <button
