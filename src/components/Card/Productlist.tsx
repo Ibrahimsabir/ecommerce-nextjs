@@ -21,7 +21,7 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 palce-items-center gap-48">
       {/* Map through the products array and render ProductCard */}
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
