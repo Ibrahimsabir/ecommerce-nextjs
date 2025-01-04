@@ -2,7 +2,6 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-// import { ProductsData } from "../productdata/productData";
 
 interface Product {
   id: number;
@@ -18,38 +17,40 @@ interface Product {
   showOrderButton?: boolean; // Optional field
 }
 
-type ProductsData = Product[];
+interface ProductCardProps {
+  product: Product; // The prop will now be a single product
+  showOrderButton?: boolean; // Optional button visibility
+}
 
-
-const ProductCard = ({ ProductsData, showOrderButton = true }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, showOrderButton = true }) => {
   return (
     <div
-      key={ProductsData.id}
+      key={product.id}
       className="rounded-2xl bg-white hover:bg-black/80 hover:text-white relative shadow-xl duration-300 group w-[300px] h-[300px] flex flex-col justify-between"
       data-aos="fade-up"
-      data-aos-delay={ProductsData.aosDelay}
+      data-aos-delay={product.aosDelay}
     >
       <div className="h-[200px] flex justify-center items-center">
         <Image
-          src={ProductsData.img}
-          alt={ProductsData.title}
+          src={product.img}
+          alt={product.title}
           width={140}
           height={220}
-          className="max-w-[140px] block mx-auto rounded-lg transform -translate-y-20 group-hover:scale-105 duration-300  drop-shadow-md"
+          className="max-w-[140px] block mx-auto rounded-lg transform -translate-y-20 group-hover:scale-105 duration-300 drop-shadow-md"
         />
       </div>
       <div className="p-4 text-center flex flex-col justify-between flex-grow">
-        <h1 className="text-xl font-bold">{ProductsData.title}</h1>
+        <h1 className="text-xl font-bold">{product.title}</h1>
         <p className="text-gray-500 group-hover:text-white text-sm line-clamp-2">
-          {ProductsData.description}
+          {product.description}
         </p>
         <div className="flex items-center justify-center gap-1">
           <FaStar className="text-yellow-400" />
-          <span>{ProductsData.rating}</span>
+          <span>{product.rating}</span>
         </div>
         {/* Show order button if needed */}
         {showOrderButton && (
-          <Link href={`/productdetail/${ProductsData.id}`}>
+          <Link href={`/productdetail/${product.id}`}>
             <button className="bg-primary hover:scale-105 text-gray-700 border-2 border-[#f7d1a6] py-1 px-4 rounded-full my-2 group-hover:bg-white group-hover:text-[#f7d1a6]">
               View Details
             </button>

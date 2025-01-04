@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ProductsData } from "../productdata/productData";
-import ProductCard from "../Card/Card"; // Import the reusable ProductCard
+import ProductList from "../Card/Productlist"; // Import the ProductList component
 
 const MoreProducts = () => {
   const [visibleProducts, setVisibleProducts] = useState(3);
@@ -11,7 +11,7 @@ const MoreProducts = () => {
   };
 
   return (
-    <div className={` relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-lg bg-gray-50 flex justify-center items-center`}>
+    <div className="relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-xl bg-gray-50 flex justify-center items-center">
       <div className="mx-auto w-full">
         <div className="text-center mb-32 max-w-[600px] mx-auto">
           <p className="text-3xl font-bold my-4 text-[#f7d1a6] underline uppercase animate-pulse">
@@ -21,10 +21,9 @@ const MoreProducts = () => {
         </div>
 
         {/* Body section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 gap-y-24 place-items-center">
-          {ProductsData.slice(0, visibleProducts).map((data) => (
-            <ProductCard key={data.id} ProductsData={data} showOrderButton={true} />
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 place-items-center gap-10">
+          {/* Pass the sliced array of ProductsData to ProductList */}
+          <ProductList products={ProductsData.slice(0, visibleProducts)} />
         </div>
 
         {/* "View More" Button */}

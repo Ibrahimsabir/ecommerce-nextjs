@@ -15,7 +15,7 @@ export const Navbarbottom = () => {
           {/* Dropdown Menu */}
           <div className="absolute w-56 left-0 hidden group-hover:block mt-2 bg-white shadow-lg rounded-lg p-4">
             <ul>
-              <li><Link href="/option1" className="block text-semibold py-2">Men&apo;s Clothing</Link></li>
+              <li><Link href="/option1" className="block text-semibold py-2">Men&apos;s Clothing</Link></li>
               <li><Link href="/option2" className="block text-semibold py-2">Men&apos;s Watches</Link></li>
               <li><Link href="/option3" className="block text-semibold py-2">Women&apos;s Watches</Link></li>
               {/* Add more options as needed */}

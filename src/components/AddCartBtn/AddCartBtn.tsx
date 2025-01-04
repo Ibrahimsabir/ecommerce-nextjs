@@ -1,33 +1,37 @@
-"use client";
-import React from "react";
-import toast from "react-hot-toast";
+// "use client";
+// import Link from "next/link";
+// import Image from "next/image";
+// import toast, { Toaster } from "react-hot-toast";
+// import React, { useState, useEffect } from "react";
+// import { ProductsData } from "@/components/productdata/productData";
 
-interface AddToCartButtonProps {
-  product: {
-    id: string;
-    title: string;
-    price: string;
-    img: string;
-  };
-  onAddToCart: (product: AddToCartButtonProps["product"]) => void;
-}
-
-const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product, onAddToCart }) => {
-  const handleAddToCart = () => {
-    onAddToCart(product);
-    toast.success(`${product.title} added to cart!`, {
-      position: "top-center",
-    });
-  };
-
-  return (
-    <button
-      onClick={handleAddToCart}
-      className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
-    >
-      Add To Cart
-    </button>
-  );
-};
-
-export default AddToCartButton;
+// export interface Product {
+//   id: string;
+//   title: string;
+//   description: string;
+//   img: string;
+//   category: string;
+//   rating: number;
+//   price: string;
+//   priceWas: string;
+//   color: string;
+//   aosDelay: number;
+// }
+// const [cartItems,setCartItems]=useState([]);
+// const [quantity,setQuantity]=useState(0)
+// const handleAddToCart = (product:Product) => {
+//     setCartItems((prevItems) => {
+//       const existingItem = prevItems.find((item) => item.id === product.id);
+//       if (existingItem) {
+//         // Update quantity if product already exists in cart
+//         return prevItems.map((item) =>
+//           item.id === product.id
+//             ? { ...item, quantity: item.quantity + 1 }
+//             : item
+//         );
+//       }
+//       // Add new product to cart
+//       return [...prevItems, { ...product, quantity: 1 }];
+//     });
+//   };
+  

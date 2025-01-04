@@ -36,13 +36,11 @@ const NewArrival = () => {
   };
 
   return (
-    <div className={`${poppins.className} relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-xl bg-gray-50 flex justify-center items-center`}>
+    <div className="relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-xl bg-gray-50 flex justify-center items-center">
       <div className="mx-auto w-full">
         {/* Header Section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <p
-            className="text-3xl font-bold py-8 text-[#f7d1a6] underline uppercase animate-wobble"
-          >
+          <p className="text-3xl font-bold py-8 text-[#f7d1a6] underline uppercase animate-wobble">
             New Arrivals
           </p>
           <h1 className="text-xl font-semibold text-gray-800" data-aos="fade-left">
