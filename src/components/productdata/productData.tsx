@@ -1,6 +1,6 @@
 export const ProductsData = [
     {
-      id: "1",
+      id: 1,
       title: "Classic T-Shirt",
       description: "Soft and comfortable cotton t-shirt available in various colors.",
       img: "/images/men-clothing/t-shirts-1 (1).png",
@@ -12,7 +12,7 @@ export const ProductsData = [
       aosDelay: 100,
     },
     {
-      id: "2",
+      id: 2,
       title: "Graphic T-Shirt",
       description: "Trendy graphic t-shirt with cool designs for casual wear.",
       img: "/images/men-clothing/t-shirts-2 (2).png",
@@ -24,7 +24,7 @@ export const ProductsData = [
       aosDelay: 200,
     },
     {
-      id:"3",
+      id:3,
       title: "Denim Jeans",
       description: "Premium quality denim jeans for a stylish look.",
       img: "/images/men-clothing/denim-bottom (2).png",
@@ -36,7 +36,7 @@ export const ProductsData = [
       aosDelay: 300,
     },
     {
-      id: "4",
+      id: 4,
       title: "Ripped Jeans",
       description: "Fashionable ripped denim jeans for modern style enthusiasts.",
       img: "/images/men-clothing/denim-bottom (1).png",
@@ -48,7 +48,7 @@ export const ProductsData = [
       aosDelay: 400,
     },
     {
-      id: "5",
+      id: 5,
       title: "Full-Sleeve Shirt",
       description: "Elegant full-sleeve shirt, perfect for formal or casual occasions.",
       img: "/images/men-clothing/full-sleeve-shirt-2.png",
@@ -60,7 +60,7 @@ export const ProductsData = [
       aosDelay: 500,
     },
     {
-      id: "6",
+      id: 6,
       title: "Men's Digital Watch",
       description: "Stylish and durable digital watch for men.",
       img: "/images/men-watches/watch-2-(1).jpg",
@@ -72,7 +72,7 @@ export const ProductsData = [
       aosDelay: 600,
     },
     {
-      id: "7",
+      id: 7,
       title: "Women's Luxury Watch",
       description: "Elegant and chic luxury watch for women.",
       img: "/images/women-watches/watch-2-(2).jpg",
@@ -84,7 +84,7 @@ export const ProductsData = [
       aosDelay: 700,
     },
     {
-      id: "8",
+      id: 8,
       title: "Casual T-Shirt",
       description: "Everyday casual t-shirt for relaxed style.",
       img: "/images/men-clothing/t-shirts-2 (4).png",
@@ -96,7 +96,7 @@ export const ProductsData = [
       aosDelay: 800,
     },
     {
-      id: "9",
+      id: 9,
       title: "Formal Shirt",
       description: "Perfectly tailored formal shirt for office wear.",
       img: "/images/men-clothing/full-sleeve-shirt.png",
@@ -108,7 +108,7 @@ export const ProductsData = [
       aosDelay: 900,
     },
     {
-      id: "10",
+      id: 10,
       title: "Classic Denim Short",
       description: "Timeless denim shorts for all seasons.",
       img: "/images/men-clothing/denim-bottom (3).png",
@@ -120,7 +120,7 @@ export const ProductsData = [
       aosDelay: 1000,
     },
     {
-        id: "11",
+        id: 11,
         title: "Sports Watch",
         description: "Durable sports watch for outdoor enthusiasts.",
         img: "/images/men-watches/watch-2-(2).jpg",
@@ -132,7 +132,7 @@ export const ProductsData = [
         aosDelay: 1100,
       },
       {
-        id: "12",
+        id: 12,
         title: "Fashion Bracelet",
         description: "Beautiful bracelet to complement any outfit.",
         img: "/images/accessories/bracelet2.jpg",
@@ -144,7 +144,7 @@ export const ProductsData = [
         aosDelay: 1200,
       },
       {
-        id: "13",
+        id: 13,
         title: "Leather Belt",
         description: "High-quality leather belt for a sophisticated look.",
         img: "/images/accessories/leather-belt1.jpg",
@@ -156,7 +156,7 @@ export const ProductsData = [
         aosDelay: 1300,
       },
       {
-        id: "14",
+        id: 14,
         title: "Polarized Sunglasses",
         description: "Protect your eyes with stylish polarized sunglasses.",
         img: "/images/accessories/sunglasses.jpg",
@@ -168,7 +168,7 @@ export const ProductsData = [
         aosDelay: 1400,
       },
       {
-        id: "15",
+        id: 15,
         title: "Summer Dress",
         description: "Light and airy summer dress for warm days.",
         img: "/images/men-clothing/t-shirts-1 (3).png",
@@ -180,7 +180,7 @@ export const ProductsData = [
         aosDelay: 1500,
       },
       {
-        id: "16",
+        id: 16,
         title: "Sneakers",
         description: "Comfortable sneakers for everyday use.",
         img: "/images/shoes/running-1.jpg",
@@ -192,7 +192,7 @@ export const ProductsData = [
         aosDelay: 1600,
       },
       {
-        id: "17",
+        id: 17,
         title: "Running Shoes",
         description: "Lightweight running shoes for active lifestyles.",
         img: "/images/shoes/running2.jpg",
@@ -204,7 +204,7 @@ export const ProductsData = [
         aosDelay: 1700,
       },
       {
-        id: "18",
+        id: 18,
         title: "Classic Wallet",
         description: "Minimalistic wallet made of genuine leather.",
         img: "/images/accessories/wallet2.jpg",
@@ -216,7 +216,7 @@ export const ProductsData = [
         aosDelay: 1800,
       },
       {
-        id: "19",
+        id: 19,
         title: "Hoodie",
         description: "Cozy hoodie for chilly days.",
         img: "/images/hoodie/hoodie1.jpg",
@@ -228,7 +228,7 @@ export const ProductsData = [
         aosDelay: 1900,
       },
       {
-        id: "20",
+        id: 20,
         title: "Formal Shoes",
         description: "Elegant formal shoes for office wear.",
         img: "/images/shoes/formal-shoe.jpg",

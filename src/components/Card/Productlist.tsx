@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./Card"; // Import the ProductCard component
 
 interface Product {
-  id: string; // Change id to a number
+  id: number; // id is a string
   title: string;
   description: string;
   img: string;
@@ -21,7 +21,7 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 palce-items-center gap-48">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 place-items-center gap-10">
       {/* Map through the products array and render ProductCard */}
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />

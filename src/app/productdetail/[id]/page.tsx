@@ -7,7 +7,7 @@ import { ProductsData } from "@/components/productdata/productData";
 import { AiOutlineStar, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 
 export interface Product {
-  id: string;
+  id: number;
   title: string;
   description: string;
   img: string;
@@ -28,10 +28,10 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     // Find the product by id
     if (id) {
-      const product = ProductsData.find((item) => item.id === params.id);
+      const product = ProductsData.find((item) => item.id === Number(id));
       setProduct(product || null);
     }
-  }, [id]);
+  }, [id]); // Add id to the dependency array
 
   const addtocarthandler = () => {
     toast.success("Item added to cart!", {
