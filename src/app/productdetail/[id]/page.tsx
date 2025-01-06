@@ -19,7 +19,7 @@ export interface Product {
   aosDelay: number;
 }
 
-const ProductDetail = ({ params }: { params: { id: string } }) => {
+const ProductDetail = ({ params }: { params: { id: number } }) => {
   const [product, setProduct] = useState<Product | null>(null);
   
   const { id } = params; // Assuming id is passed in the URL
@@ -55,7 +55,7 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
                   width={500}
                   height={500}
                   alt="Large Image"
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
+                  className="w-full h-full object-cover rounded-[100px] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:rounded-3xl"
                 />
               </div>
             </Link>
