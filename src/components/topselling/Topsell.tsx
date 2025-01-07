@@ -7,7 +7,6 @@ import Image from "next/image";
 import { TopSell } from "../productdata/productData";
 import Link from "next/link"; // Import Link component
 
-
 const TopSelling = () => {
   const [visibleProducts, setVisibleProducts] = useState(3); // To manage the number of visible products
   const [noMoreProducts, setNoMoreProducts] = useState(false); // To show "No more products" message
@@ -22,22 +21,24 @@ const TopSelling = () => {
   };
 
   const handleViewMore = () => {
-    // Load next 3 products
+    // Show next 3 products or all remaining products
     if (visibleProducts + 3 <= TopSell.length) {
       setVisibleProducts(visibleProducts + 3);
     } else {
-      setNoMoreProducts(true); // Show message if no more products
+      setVisibleProducts(TopSell.length); // Show all remaining products
+      setNoMoreProducts(true); // Once all are shown, set 'No more products' message
     }
   };
 
   return (
-    <div id="TopSeller" className={`overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-md bg-gray-50 flex justify-center items-center`}>
+    <div
+      id="TopSeller"
+      className={`overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-md bg-gray-50 flex justify-center items-center`}
+    >
       <div className="mx-auto w-full">
         {/* Header Section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <p
-            className="text-3xl font-bold py-8 text-[#f7d1a6] underline uppercase animate-bounce"
-          >
+          <p className="text-3xl font-bold py-8 text-[#f7d1a6] underline uppercase animate-bounce">
             Top Selling Products
           </p>
           <h1 className="text-xl font-semibold text-gray-800" data-aos="fade-left">
@@ -73,17 +74,17 @@ const TopSelling = () => {
                       {data.color}
                     </p>
                     <div className="flex text-yellow-500">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <IoMdStar
-                    key={index}
-                    className={`${
-                      index < Math.round(data.rating)
-                        ? "text-yellow-500"
-                        : "text-gray-300"
-                    } text-lg`}
-                  />
-                ))}
-              </div>
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <IoMdStar
+                          key={index}
+                          className={`${
+                            index < Math.round(data.rating)
+                              ? "text-yellow-500"
+                              : "text-gray-300"
+                          } text-lg`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Link>

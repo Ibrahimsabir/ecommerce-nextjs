@@ -7,7 +7,6 @@ import Image from "next/image";
 import { NewArrivals } from "../productdata/productData";
 import Link from "next/link"; // Import Link component
 
-
 const NewArrival = () => {
   const [visibleProducts, setVisibleProducts] = useState(3); // To manage the number of visible products
   const [noMoreProducts, setNoMoreProducts] = useState(false); // To show "No more products" message
@@ -22,16 +21,20 @@ const NewArrival = () => {
   };
 
   const handleViewMore = () => {
-    // Load next 3 products
+    // Load next 3 products or the remaining products
     if (visibleProducts + 3 <= NewArrivals.length) {
       setVisibleProducts(visibleProducts + 3);
     } else {
-      setNoMoreProducts(true); // Show message if no more products
+      setVisibleProducts(NewArrivals.length); // Show all remaining products
+      setNoMoreProducts(true); // Show message once all products are visible
     }
   };
 
   return (
-    <div id="NewArrival" className="relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-xl bg-gray-50 flex justify-center items-center">
+    <div
+      id="NewArrival"
+      className="relative overflow-hidden w-full min-h-[550px] sm:min-h-[650px] py-12 shadow-xl bg-gray-50 flex justify-center items-center"
+    >
       <div className="mx-auto w-full">
         {/* Header Section */}
         <div className="text-center mb-10 max-w-[600px] mx-auto">
@@ -70,18 +73,18 @@ const NewArrival = () => {
                     <p className="text-sm text-gray-600 transition duration-300 group-hover:text-white">
                       {data.color}
                     </p>
-                           <div className="flex text-yellow-500">
-                                   {Array.from({ length: 5 }).map((_, index) => (
-                                     <IoMdStar
-                                       key={index}
-                                       className={`${
-                                         index < Math.round(data.rating)
-                                           ? "text-yellow-500"
-                                           : "text-gray-300"
-                                       } text-lg`}
-                                     />
-                                   ))}
-                                 </div>
+                    <div className="flex text-yellow-500">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <IoMdStar
+                          key={index}
+                          className={`${
+                            index < Math.round(data.rating)
+                              ? "text-yellow-500"
+                              : "text-gray-300"
+                          } text-lg`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Link>
