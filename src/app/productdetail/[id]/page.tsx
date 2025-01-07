@@ -47,7 +47,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
       <Toaster />
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-row gap-6">
-          <div className="w-[530px] h-[530px] rounded overflow-hidden">
+          <div className="w-[530px] h-[530px] rounded mx-12 overflow-hidden">
             <Link href="/">
               <div className="group relative">
                 <Image
@@ -60,7 +60,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
               </div>
             </Link>
           </div>
-          <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <div className="lg:w-1/2 w-full pl-4 lg:pl-10 lg:py-6 mt-6  lg:mt-0">
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {product ? product.title : "Loading..."}
             </h1>
