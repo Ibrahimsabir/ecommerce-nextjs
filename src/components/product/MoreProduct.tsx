@@ -21,7 +21,7 @@ const MoreProducts = () => {
         </div>
 
         {/* Body section with responsive grid layout */}
-        <div className=" mx-auto">
+        <div className=" mx-auto my-48">
           {/* Pass the sliced array of ProductsData to ProductList */}
           <ProductList products={ProductsData.slice(0, visibleProducts)} />
         </div>
