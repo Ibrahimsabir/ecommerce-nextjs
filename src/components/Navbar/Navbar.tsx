@@ -41,7 +41,7 @@ const Navbar = () => {
 
           {/* Icons */}
           <div className="flex items-center gap-6 sm:gap-8">
-            <Link href="/Cart">
+            <Link href="/cart">
               <FiShoppingCart className="text-xl sm:text-2xl text-black cursor-pointer hover:text-gray-700 transition-all duration-200" />
             </Link>
             <IoPersonCircleSharp className="text-2xl sm:text-3xl text-black cursor-pointer hover:text-gray-700 transition-all duration-200" />

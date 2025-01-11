@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import { ProductsData } from "@/components/productdata/productData";
 import { AiOutlineStar, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 
+// Product interface
 export interface Product {
   id: number;
   title: string;
@@ -18,26 +19,58 @@ export interface Product {
   color: string;
   aosDelay: number;
 }
-
+export interface CartItem extends Product {
+  quantity: number;
+}
 const ProductDetail = ({ params }: { params: { id: number } }) => {
   const [product, setProduct] = useState<Product | null>(null);
-  
+  const [cart, setCart] = useState<Product[]>([]);
+
   const { id } = params; // Assuming id is passed in the URL
-  console.log("ID from useRouter:", id);
 
+  // Fetch product data based on the ID
   useEffect(() => {
-    // Find the product by id
     if (id) {
-      const product = ProductsData.find((item) => item.id === Number(id));
-      setProduct(product || null);
+      const foundProduct = ProductsData.find((item) => item.id === Number(id));
+      setProduct(foundProduct || null);
     }
-  }, [id]); // Add id to the dependency array
+  }, [id]);
 
+  // Get the cart from localStorage when the component mounts
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart)); // Set cart from localStorage
+    }
+  }, []);
+
+  // Add item to cart
   const addtocarthandler = () => {
-    toast.success("Item added to cart!", {
-      position: "top-center",
-    });
+    if (product) {
+      // Check if product is already in the cart
+      const existingItemIndex = cart.findIndex((item) => item.id === product.id);
+      
+      if (existingItemIndex !== -1) {
+        // Product exists in cart, increment quantity
+        const updatedCart = [...cart];
+        updatedCart[existingItemIndex].quantity += 1;
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        toast.success("Item quantity updated!", {
+          position: "top-center",
+        });
+      } else {
+        // Add the product to cart with quantity = 1
+        const updatedCart = [...cart, { ...product, quantity: 1 }];
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        toast.success("Item added to cart!", {
+          position: "top-center",
+        });
+      }
+    }
   };
+  
 
   // Fallback image in case product.img is undefined
   const fallbackImage = "/images/default-product.jpg"; // Replace with your default image path
@@ -69,10 +102,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
                 {Array(Math.floor(product?.rating || 0))
                   .fill("")
                   .map((_, idx) => (
-                    <AiFillStar
-                      key={idx}
-                      className="w-4 h-4 text-yellow-400"
-                    />
+                    <AiFillStar key={idx} className="w-4 h-4 text-yellow-400" />
                   ))}
                 {Array(5 - Math.ceil(product?.rating || 0))
                   .fill("")
@@ -88,7 +118,6 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
               <div className="flex">
                 <span className="mr-3">Color</span>
-                {/* Render colors dynamically */}
                 <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none" />
                 <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none" />
                 <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none" />
@@ -98,13 +127,18 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
               <span className="title-font font-medium text-2xl text-gray-900">
                 {product?.price || "0.00"}
               </span>
-              <div className="flex justify-end items-center">
+              <div className="flex justify-evenly items-center ">
                 <button
                   onClick={addtocarthandler}
                   className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
                 >
                   Add To Cart
                 </button>
+                <Link href="/cart">
+                  <button className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg">
+                    View Cart
+                  </button>
+                </Link>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <AiOutlineHeart className="w-5 h-5" />
                 </button>

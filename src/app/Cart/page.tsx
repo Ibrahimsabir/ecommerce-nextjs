@@ -1,142 +1,120 @@
 "use client";
-
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { AiFillDelete } from "react-icons/ai";
 
-// Define types for the cart item
-interface CartItem {
-  id: string;
+export interface Product {
+  id: number;
   title: string;
   description: string;
   img: string;
   category: string;
   rating: number;
-  price: number;
+  price: string;
   priceWas: string;
   color: string;
-  quantity: number;
   aosDelay: number;
 }
-
+export interface CartItem extends Product {
+  quantity: number;
+}
 const Cart = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: "2",
-      title: "Graphic T-Shirt",
-      description: "Trendy graphic t-shirt with cool designs for casual wear.",
-      img: "/images/men-clothing/t-shirts-2 (2).png",
-      category: "T-Shirts",
-      rating: 4.7,
-      price: 18.49,
-      priceWas: "",
-      color: "Black",
-      quantity: 1,
-      aosDelay: 200,
-    },
-    {
-      id: "13",
-      title: "Leather Belt",
-      description: "High-quality leather belt for a sophisticated look.",
-      img: "/images/accessories/leather-belt1.jpg",
-      category: "Accessories",
-      rating: 4.6,
-      price: 29.99,
-      priceWas: "39.99",
-      color: "Brown",
-      quantity: 1,
-      aosDelay: 1300,
-    },
-  ]);
+  const [cart, setCart] = useState<CartItem[]>([]); // Use CartItem instead of Product
 
-  // Define the types for the parameters in handleRemove function
-  const handleRemove = (id: string) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+  // Fetch cart from localStorage
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+  // Remove item from cart
+  const removeFromCart = (id: number) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save updated cart to localStorage
   };
 
-  // Define types for the parameters in handleQuantityChange function
-  const handleQuantityChange = (id: string, newQuantity: number) => {
-    setCartItems(
-      cartItems.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
+  // Decrease item quantity in cart
+  const decreaseQuantity = (id: number) => {
+    const updatedCart = cart.map((item) =>
+      item.id === id && item.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
     );
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save updated cart to localStorage
   };
 
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  // Increase item quantity in cart
+  const increaseQuantity = (id: number) => {
+    const updatedCart = cart.map((item) =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save updated cart to localStorage
+  };
 
   return (
-    <div className="p-8 bg-[] min-h-screen">
-      <h1 className="text-2xl font-bold mb-6 text-center">Your Shopping Cart</h1>
-      {cartItems.length === 0 ? (
+    <div className="container mx-auto py-10">
+      <h1 className="text-3xl font-bold mb-6 text-[#f7d1a6] underline uppercase">Your Cart</h1>
+      {cart.length === 0 ? (
         <p className="text-center text-gray-600">Your cart is empty.</p>
       ) : (
-        <div className="space-y-6">
-          {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center justify-between bg-white shadow-lg p-4 rounded-lg"
-            >
-              {/* Product Image */}
-              <Link href={`/productdetail/${item.id}`}>
+        <div className="flex flex-col gap-6">
+          {cart.map((item) => (
+            <div key={item.id} className="flex gap-6 items-center bg-white p-4 rounded-lg shadow-md">
+              <div className="w-20 h-20">
                 <Image
-                  src={item.img}
+                  src={item.img || "/images/default-product.jpg"}
                   alt={item.title}
                   width={80}
                   height={80}
-                  className="rounded-lg"
+                  className="object-cover rounded"
                 />
-              </Link>
-              {/* Product Details */}
-              <div className="flex-1 px-4">
-                <h2 className="text-lg font-semibold">{item.title}</h2>
-                <p className="text-gray-600">${`${(item.price * item.quantity).toFixed(2)}`}</p>
-                <div className="flex items-center space-x-2 mt-2">
+              </div>
+              <div className="flex-1">
+                <h3 className="font-medium text-gray-800">{item.title}</h3>
+                <p className="text-gray-600">{item.price}</p>
+                <div className="flex items-center gap-3 mt-3">
                   <button
-                    className="px-1 py-1 border border-[#f7d1a6] rounded-md bg-[#f7d1a6] text-white hover:bg-white hover:text-[#f7d1a6] disabled:cursor-pointe"
-                    onClick={() =>
-                      handleQuantityChange(item.id, Math.max(item.quantity - 1, 1))
-                    }
+                    onClick={() => decreaseQuantity(item.id)}
+                    className="bg-gray-200 p-1 rounded text-gray-600"
+                    disabled={item.quantity <= 1}
                   >
-                    <MinusIcon className="w-4 h-4"/>
+                    -
                   </button>
-                  <span>{item.quantity}</span>
+                  <span className="text-lg">{item.quantity}</span>
                   <button
-                    className="px-1 py-1 border-2 border-[#f7d1a6] rounded-md bg-[#f7d1a6] text-white hover:bg-white hover:text-[#f7d1a6] disabled:cursor-pointer"
-                    onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                    onClick={() => increaseQuantity(item.id)}
+                    className="bg-gray-200 p-1 rounded text-gray-600"
                   >
-                    <PlusIcon className="w-4 h-4"/>
+                    +
                   </button>
                 </div>
               </div>
-              {/* Remove Button */}
               <button
-                className="text-red-500 font-bold flex gap-2"
-                onClick={() => handleRemove(item.id)}
+                onClick={() => removeFromCart(item.id)}
+                className="text-red-600 hover:text-red-800"
               >
-                Remove
-                <TrashIcon className="w-5 h-5 text-gray-500" />
+                <AiFillDelete size={24} />
               </button>
             </div>
           ))}
-          {/* Total Price */}
-          <div className="text-right font-bold text-lg">
-            Total: ${totalPrice.toFixed(2)}
-          </div>
-          {/* Checkout Button */}
-          <div className="text-center">
-            <Link href="/checkout">
-              <button className="bg-[#f7d1a6] text-white px-6 py-3 rounded-lg hover:shadow-lg">
-                Proceed to Checkout
-              </button>
-            </Link>
-          </div>
         </div>
       )}
+      <div className="mt-6 flex justify-between items-center">
+        <Link href="/">
+          <button className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
+            Continue Shopping
+          </button>
+        </Link>
+        <button className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
+          Proceed to Checkout
+        </button>
+      </div>
     </div>
   );
 };
