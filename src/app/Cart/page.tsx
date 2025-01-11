@@ -15,12 +15,11 @@ export interface Product {
   priceWas: string;
   color: string;
   aosDelay: number;
-}
-export interface CartItem extends Product {
   quantity: number;
 }
+
 const Cart = () => {
-  const [cart, setCart] = useState<CartItem[]>([]); // Use CartItem instead of Product
+  const [cart, setCart] = useState<Product[]>([]); // Use CartItem instead of Product
 
   // Fetch cart from localStorage
   useEffect(() => {

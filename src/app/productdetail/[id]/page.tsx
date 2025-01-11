@@ -18,10 +18,9 @@ export interface Product {
   priceWas: string;
   color: string;
   aosDelay: number;
-}
-export interface CartItem extends Product {
   quantity: number;
 }
+
 const ProductDetail = ({ params }: { params: { id: number } }) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [cart, setCart] = useState<Product[]>([]);
