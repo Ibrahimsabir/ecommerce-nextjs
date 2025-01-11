@@ -56,9 +56,15 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save updated cart to localStorage
   };
 
+  // Calculate total amount
+  const totalAmount = cart.reduce((total, item) => {
+    const price = parseFloat(item.price.replace('$', '').replace(',', ''));
+    return total + price * item.quantity;
+  }, 0).toFixed(2); // Round to 2 decimal places
+
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-6 text-[#f7d1a6] underline uppercase">Your Cart</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-50 underline uppercase">Your Cart</h1>
       {cart.length === 0 ? (
         <p className="text-center text-gray-600">Your cart is empty.</p>
       ) : (
@@ -104,16 +110,31 @@ const Cart = () => {
           ))}
         </div>
       )}
-      <div className="mt-6 flex justify-between items-center">
-        <Link href="/">
-          <button className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
-            Continue Shopping
-          </button>
-        </Link>
-        <button className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
-          Proceed to Checkout
-        </button>
-      </div>
+
+      {cart.length > 0 && (
+        <div className="mt-6">
+          {/* Total Amount Section */}
+          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Total Amount</h2>
+            <div className="flex justify-between items-center text-xl">
+              <span className="font-medium">Total:</span>
+              <span className="text-[#f7d1a6] font-bold">${totalAmount}</span>
+            </div>
+          </div>
+
+          {/* Buttons Section */}
+          <div className="flex justify-between items-center">
+            <Link href="/">
+              <button className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
+                Continue Shopping
+              </button>
+            </Link>
+            <button className="bg-[#f7d1a6] text-white py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
