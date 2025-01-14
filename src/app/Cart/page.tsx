@@ -169,9 +169,11 @@ const Cart = () => {
                 Continue Shopping
               </button>
             </Link>
+            <Link href="/checkoutpage">
             <button className="bg-[#f7d1a6] text-white shadow-lg py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
               Proceed to Checkout
             </button>
+            </Link>
           </div>
         </div>
       )}
