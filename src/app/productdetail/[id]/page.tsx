@@ -78,7 +78,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
     <section className="text-gray-600 shadow-lg body-font overflow-hidden">
       <Toaster />
       <div className="container px-5 py-24 mx-auto">
-        <div className="lg:w-4/5 mx-auto flex flex-row gap-6">
+        <div className="lg:w-4/5 mx-auto flex flex-row gap-4">
           <div className="w-[530px] h-[530px] rounded mx-12 overflow-hidden">
             <Link href="/">
               <div className="group relative">

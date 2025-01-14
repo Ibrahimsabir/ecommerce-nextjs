@@ -40,10 +40,13 @@ const Navbar = () => {
           </div>
 
           {/* Icons */}
-          <div className="flex items-center gap-6 sm:gap-8">
+          <div className=" flex items-center gap-6 sm:gap-8">
+            <div className='relative'>
             <Link href="/cart">
               <FiShoppingCart className="text-xl sm:text-2xl text-black cursor-pointer hover:text-gray-700 transition-all duration-200" />
+              <span className='cart-items-qty'>21</span>
             </Link>
+            </div>
             <IoPersonCircleSharp className="text-2xl sm:text-3xl text-black cursor-pointer hover:text-gray-700 transition-all duration-200" />
           </div>
         </div>

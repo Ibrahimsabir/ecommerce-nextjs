@@ -91,6 +91,9 @@
   }
 }
 
+.cart-items-qty{
+  @apply absolute top-[-6px] right-[-5px] text-[13px] w-[18px] h-[18px] font-semibold p-[1px] bg-red-500 text-white rounded-3xl text-center 
+}
 /* src/globals.css */
 * {
   margin: 0;
