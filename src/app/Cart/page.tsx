@@ -64,8 +64,10 @@ const Cart = () => {
   }, 0).toFixed(2); // Round to 2 decimal places
 
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-6 text-gray-600 underline uppercase animate-wobble">Your Cart</h1>
+    <div className="container mx-auto py-10 px-4">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-600 underline uppercase animate-wobble text-center sm:text-left">
+        Your Cart
+      </h1>
       {cart.length === 0 ? (
         <p className="text-center text-gray-600">Your cart is empty.</p>
       ) : (
@@ -73,23 +75,26 @@ const Cart = () => {
           {/* Cart Items */}
           <div className="flex flex-col gap-6">
             {cart.map((item) => (
-              <div key={item.id} className="flex gap-6 items-center bg-white p-4 rounded-lg shadow-md">
-                <div className="w-20 h-20">
+              <div
+                key={item.id}
+                className="flex flex-col sm:flex-row gap-6 sm:gap-12 items-center bg-white p-4 rounded-lg shadow-md"
+              >
+                <div className="w-20 h-20 sm:w-24 sm:h-24">
                   <Image
                     src={item.img || "/images/default-product.jpg"}
                     alt={item.title}
-                    width={80}
-                    height={80}
+                    width={96}
+                    height={96}
                     className="object-cover rounded"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-gray-800">{item.title}</h3>
+                  <h3 className="font-medium text-gray-800 text-lg sm:text-xl">{item.title}</h3>
                   <p className="text-gray-600">{item.price}</p>
                   <div className="flex items-center gap-3 mt-3">
                     <button
                       onClick={() => decreaseQuantity(item.id)}
-                      className="bg-gray-200 p-1 rounded text-gray-600"
+                      className="bg-gray-200 p-2 rounded text-gray-600"
                       disabled={item.quantity <= 1}
                     >
                       -
@@ -97,7 +102,7 @@ const Cart = () => {
                     <span className="text-lg">{item.quantity}</span>
                     <button
                       onClick={() => increaseQuantity(item.id)}
-                      className="bg-gray-200 p-1 rounded text-gray-600"
+                      className="bg-gray-200 p-2 rounded text-gray-600"
                     >
                       +
                     </button>
@@ -105,7 +110,7 @@ const Cart = () => {
                 </div>
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="text-red-600 hover:text-red-800"
+                  className="text-red-600 hover:text-red-800 mt-2 sm:mt-0"
                 >
                   <AiFillDelete size={24} />
                 </button>
@@ -116,12 +121,12 @@ const Cart = () => {
           {/* Toggle Button to Show/Hide Cart Summary */}
           <button
             onClick={() => setShowSummary(!showSummary)}
-            className="bg-[#f7d1a6] text-white py-2 px-4 shadow-lg rounded-lg hover:bg-[#e3c5a2] duration-300 mt-6 inline-block"
+            className="bg-[#f7d1a6] text-white py-2 px-6 shadow-lg rounded-lg hover:bg-[#e3c5a2] duration-300 mt-6 inline-block mx-auto sm:mx-0"
           >
             {showSummary ? "Hide Cart Summary" : "Show Cart Summary"}
           </button>
 
-          {/* Cart Summary Section (Conditionally Rendered as a Small Card) */}
+          {/* Cart Summary Section */}
           {showSummary && (
             <div className="bg-white p-4 rounded-lg shadow-lg max-w-xs mx-auto mt-6">
               <h2 className="text-xl font-bold text-gray-800 mb-3">Cart Summary</h2>
@@ -163,16 +168,16 @@ const Cart = () => {
           </div>
 
           {/* Buttons Section */}
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link href="/">
-              <button className="bg-[#f7d1a6] text-white shadow-lg py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
+              <button className="bg-[#f7d1a6] text-white shadow-lg py-2 px-6 rounded-lg hover:bg-[#e3c5a2] duration-300 w-full sm:w-auto">
                 Continue Shopping
               </button>
             </Link>
             <Link href="/checkoutpage">
-            <button className="bg-[#f7d1a6] text-white shadow-lg py-2 px-4 rounded-lg hover:bg-[#e3c5a2] duration-300">
-              Proceed to Checkout
-            </button>
+              <button className="bg-[#f7d1a6] text-white shadow-lg py-2 px-6 rounded-lg hover:bg-[#e3c5a2] duration-300 w-full sm:w-auto">
+                Proceed to Checkout
+              </button>
             </Link>
           </div>
         </div>
