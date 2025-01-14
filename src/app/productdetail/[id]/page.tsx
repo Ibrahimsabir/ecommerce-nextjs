@@ -126,7 +126,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
               <span className="title-font font-medium text-2xl text-gray-900">
                 {product?.price || "0.00"}
               </span>
-              <div className="flex justify-evenly items-center ">
+              <div className="flex justify-evenly items-center gap-4 ">
                 <button
                   onClick={addtocarthandler}
                   className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
