@@ -129,7 +129,7 @@ const ProductDetail = ({ params }: { params: { id: number } }) => {
               <div className="flex justify-evenly items-center gap-4 ">
                 <button
                   onClick={addtocarthandler}
-                  className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-medium py-1 px-2 text-white rounded-lg hover:shadow-lg"
+                  className="w-auto text-sm md:text-lg bg-[#f7d1a6] font-[300] py-1 px-2 text-white rounded-lg hover:shadow-lg"
                 >
                   Add To Cart
                 </button>
