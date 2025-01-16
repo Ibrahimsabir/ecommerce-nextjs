@@ -81,7 +81,7 @@ const Cart = () => {
               >
                 <div className="w-20 h-20 sm:w-24 sm:h-24">
                   <Image
-                    src={item.img || "/images/default-product.jpg"}
+                    src={item.img || "No Image"}
                     alt={item.title}
                     width={96}
                     height={96}
@@ -138,7 +138,7 @@ const Cart = () => {
                       <div className="flex items-center">
                         <div className="w-10 h-10 mr-3">
                           <Image
-                            src={item.img || "/images/default-product.jpg"}
+                            src={item.img || "No Image "}
                             alt={item.title}
                             width={40}
                             height={40}

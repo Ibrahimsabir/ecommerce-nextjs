@@ -261,7 +261,7 @@ body {
 }
 
 .animate-flip {
-  animation: flip 1s ease-in-out forwards;
+  animation: flip 1s ease-in-out forwards infinite;
 }
 @keyframes shake {
   0% {
@@ -282,7 +282,7 @@ body {
 }
 
 .animate-shake {
-  animation: shake 0.6s ease-in-out;
+  animation: shake 0.6s ease-in-out infinite;
 }
 @keyframes flash {
   0% {

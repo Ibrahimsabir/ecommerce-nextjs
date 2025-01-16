@@ -58,7 +58,7 @@ const Hero = () => {
     <div className={` relative overflow-hidden w-full min-h-[550px] shadow-md sm:min-h-[650px] bg-gray-50 flex justify-center items-center duration-200`}>
       {/* Background pattern */}
      {/* Background pattern */}
-<div className="h-[700px] w-[700px] bg-[#f7d1a6] absolute -top-10 right-0 transform -translate-y-1/2 rounded-full rotate-45 -z-9"></div>
+<div className="h-[700px] w-[700px] bg-[#f7d1a6] absolute -top-10 right-0 transform -translate-y-1/2 rounded-full animate-bounce -z-9"></div>
 
       {/* Hero section */}
       <div className="w-full h-auto container absolute flex flex-col sm:flex-row justify-between items-center pb-8 sm:pb-0">
@@ -87,7 +87,7 @@ const Hero = () => {
           />
         </div>
       </div>
-      <div className="h-[300px] w-[300px] bg-[#e4c16a] absolute -bottom-[-5%] -left-[5%] transform translate-y-1/2 rounded-full -z-9"></div>
+      <div className="h-[200px] w-[200px] bg-[#e4c16a] absolute -bottom-[-5%] -left-[5%] transform translate-y-1/2 rounded-full animate-flip -z-9"></div>
 
     </div>
   );
