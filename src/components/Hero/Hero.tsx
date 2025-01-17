@@ -60,7 +60,7 @@ const Hero = () => {
   return (
     <div className="relative overflow-hidden w-full min-h-[550px] shadow-md sm:min-h-[650px] bg-gray-50 flex justify-center items-center duration-200">
       {/* Background pattern */}
-      <div className="h-[700px] w-[700px] bg-[#f7d1a6] absolute -top-20 right-10 transform -translate-y-1/2 rounded-full animate-bounce -z-9"></div>
+      <div className="h-[500px] w-[500px] bg-[#f7d1a6] absolute -top-20 right-10 transform -translate-y-1/2 rounded-full animate-bounce -z-9"></div>
 
       {/* Hero section */}
       <div className="w-full h-auto container absolute flex flex-col sm:flex-row justify-between items-center pb-8 sm:pb-0">
