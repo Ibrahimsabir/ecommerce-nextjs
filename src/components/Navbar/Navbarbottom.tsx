@@ -23,16 +23,16 @@ export const Navbarbottom = () => {
           </div>
         </li>
         <li className="hover:underline text-semibold underline-offset-4">
-            <Link href="/" target="_blank">Home</Link>
+            <Link href="/" target="">Home</Link>
           </li>
           <li className="hover:underline text-semibold underline-offset-4 ">
-            <Link href="#TopSeller">Top Selling</Link>
+            <Link href="">Top Selling</Link>
           </li>
           <li className="hover:underline text-semibold underline-offset-4">
-            <Link href="#NewArrival">New Arrival</Link>
+            <Link href="#">New Arrival</Link>
           </li>
           <li className="hover:underline text-semibold underline-offset-4">
-            <Link href="#MoreProducts" target="_blank">More Products</Link>
+            <Link href="#Mo" target="_blank">More Products</Link>
           </li>
           
         </ul>
